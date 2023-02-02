@@ -1,10 +1,17 @@
-package generics.classes.lists;
+package generics.classes.unbounded_generics;
 
 public class Main {
     public static void main(String[] args) {
+        // Single Generic
+        ObjectGeneric<String> stringObjectGeneric = new ObjectGeneric<>("Strings");
+        stringObjectGeneric.print();
+
+        ObjectGeneric<Integer> integerObjectGeneric = new ObjectGeneric<>(1234);
+        integerObjectGeneric.print();
+
+        // List of Generics
         typeAsString();
         typeAsInteger();
-
 
     }
 

@@ -1,8 +1,6 @@
 package generics.function;
 
-import generics.classes.lists.ListGeneric;
-
-public class Main {
+public class GenericMethod {
     public static void main(String[] args) {
         shout("Hi");
         shout(123);

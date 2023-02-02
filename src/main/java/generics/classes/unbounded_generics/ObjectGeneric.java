@@ -1,9 +1,9 @@
-package generics.classes.basic;
+package generics.classes.unbounded_generics;
 
-public class Printer <T> {
+public class ObjectGeneric<T> {
     private T type;
 
-    public Printer(T type) {
+    public ObjectGeneric(T type) {
         this.type = type;
     }
 

@@ -1,4 +1,4 @@
-package generics.classes.lists;
+package generics.classes.unbounded_generics;
 
 import java.util.ArrayList;
 import java.util.List;

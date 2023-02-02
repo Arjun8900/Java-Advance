@@ -1,15 +1,18 @@
 package generics.function;
 
-import generics.classes.extending.Animal;
+import generics.classes.data.Animal;
+import generics.classes.data.Cat;
+import generics.classes.data.Dog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WildCard {
+public class WildCardMethod {
     public static void main(String[] args) {
         unboundedWildCards();
 
+        boundedWildCards();
     }
 
     private static void unboundedWildCards() {
@@ -36,6 +39,9 @@ public class WildCard {
         shoutBounded(dogs);
     }
     public static void shoutBounded(List<? extends Animal> shout) {
-        System.out.println(shout + "!!!");
+        for (Animal a: shout) {
+            a.eat();
+        }
+        System.out.println(shout.size() + "!!!");
     }
 }

@@ -4,9 +4,11 @@ Wild card (?) vs Type (T)
 
 1. Wild card (?) Type cannot be used inside function again, unlike <T>
 
-[wildcard.java](function/WildCard.java)
+[Unbounded ObjectGeneric.java](classes/unbounded_generics/ObjectGeneric.java) </br>
+[Unbounded ListGeneric.java](classes/unbounded_generics/ListGeneric.java) </br>
+[Bounded ListGenerics.java](classes/bounded_generics/Main.java) </br>
+[Unbounded and bounded wildcard.java](function/WildCardMethod.java) </br>
 
-<a href="function/WildCard.java" target="_blank" rel="noopener"><span>Example Text</span> </a>.
 ```java
 public static void shout(List<?> shout) {
         System.out.println(shout + "!!!");

@@ -1,7 +1,7 @@
 package future;
 
 
-import generics.classes.lists.ListGeneric;
+import generics.classes.unbounded_generics.ListGeneric;
 
 public class CompatibleFutureObject {
     public static void main(String[] args) {
