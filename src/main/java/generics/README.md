@@ -4,7 +4,7 @@ Wild card (?) vs Type (T)
 
 1. Wild card (?) Type cannot be used inside function again, unlike <T>
 
-[wildcard]Java-Advance/src/main/java/generics/function/WildCard.java
+[wildcard.java](Java-Advance/src/main/java/generics/function/WildCard.java)
 ```java
 public static void shout(List<?> shout) {
         System.out.println(shout + "!!!");
