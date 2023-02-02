@@ -1,4 +1,4 @@
-package generics.classes;
+package generics.classes.lists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,5 +15,11 @@ public class ListGeneric<T> {
             return genericList.get(i);
         }
         return null;
+    }
+
+    public void print() {
+        for (T g: genericList) {
+            System.out.println(g);
+        }
     }
 }
