@@ -23,11 +23,11 @@ public class WildCardMethod {
         shoutUnBounded(ints);
     }
 
-    public static void shoutUnBounded(List<?> shout) {
+    private static void shoutUnBounded(List<?> shout) {
         System.out.println(shout + "!!!");
     }
 
-    public static void boundedWildCards() {
+    private static void boundedWildCards() {
         List<Cat> cats = new ArrayList<>();
         cats.add(new Cat());
         cats.add(new Cat());
@@ -38,8 +38,9 @@ public class WildCardMethod {
         dogs.add(new Dog());
         shoutBounded(dogs);
     }
-    public static void shoutBounded(List<? extends Animal> shout) {
-        for (Animal a: shout) {
+
+    private static void shoutBounded(List<? extends Animal> shout) {
+        for (Animal a : shout) {
             a.eat();
         }
         System.out.println(shout.size() + "!!!");
