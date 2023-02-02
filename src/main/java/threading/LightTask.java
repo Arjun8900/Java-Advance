@@ -1,17 +1,18 @@
 package threading;
 
-public class MultiThreadingThing implements Runnable{
+public class LightTask implements Runnable{
     private final int threadNumber;
-    public MultiThreadingThing(int threadNumber) {
+
+    public LightTask(int threadNumber) {
         this.threadNumber = threadNumber;
     }
 
     @Override
     public void run() {
         String name = Thread.currentThread().getName();
-        System.out.println("Sleeping for 20 sec " + name);
+        System.out.println("Sleeping for 5 sec " + name);
         try {
-            Thread.sleep(20000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

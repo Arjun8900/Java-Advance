@@ -7,6 +7,5 @@ public class OptionalTest {
         Optional<String> hello = Optional.ofNullable("df");
         hello.orElse("emptyu");
 
-
     }
 }

@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MyAnnotation {
+public @interface ClassAnnotation {
     int times() default 1;
 }

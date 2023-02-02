@@ -1,16 +1,16 @@
 package annotations;
 
 
-@MyAnnotation
-public class Cat {
-    @StringAnnotation
+@ClassAnnotation
+public class CatUsingMyAnnotation {
+    @MethodAnnotation
     String name;
 
-    public Cat(String name) {
+    public CatUsingMyAnnotation(String name) {
         this.name = name;
     }
 
-    @MyAnnotation(times = 3)
+    @ClassAnnotation(times = 3)
     public void meow() {
         System.out.println("Meow");
     }
