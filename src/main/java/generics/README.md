@@ -2,7 +2,7 @@
 
 Wild card (?) vs Type (T)
 
-1. Wild card (?) Type cannot be used inside function again, unlike <T>
+1. Wild card (?) Type cannot be used inside function again, unlike Type <T>
 
 [Unbounded ObjectGeneric.java](classes/unbounded_generics/ObjectGeneric.java) </br>
 [Unbounded ListGeneric.java](classes/unbounded_generics/ListGeneric.java) </br>
