@@ -17,7 +17,7 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 
 public class CustomFileReader {
-    private static final int DEFAULT_BUFFER_SIZE = 1024 * 8;
+    private static final int DEFAULT_BUFFER_SIZE = 8 * 1024 * 1024 ; // 8 Mb
 
     public static void main(String[] args) {
 //        read("fileWriterOutput.txt");
