@@ -17,7 +17,7 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 
 public class CustomFileReader {
-    private static final int DEFAULT_BUFFER_SIZE = 1024 * 28;
+    private static final int DEFAULT_BUFFER_SIZE = 1024 * 8;
 
     public static void main(String[] args) {
 //        read("fileWriterOutput.txt");
@@ -49,16 +49,34 @@ public class CustomFileReader {
      *
      * @param fileName
      */
-    public static void read(String fileName) {
-        String line = null;
-        try (FileReader fr = new FileReader(fileName);
-             BufferedReader br = new BufferedReader(fr)) {
-
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-                //do read operations here
+    public static void readAndWriteViaBufferedReader(String fileName, String outputFileName) {
+        try (BufferedReader is = new BufferedReader(new FileReader(fileName));
+             BufferedWriter os = new BufferedWriter(new FileWriter(outputFileName))) {
+            String line;
+            while ((line = is.readLine()) != null) {
+                os.write(line);
             }
-        } catch (IOException e) {
+            os.flush();
+        }  catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Use BufferedInputStream when file contains binary data, as we'd be converting the data to String
+     *
+     * @param fileName
+     */
+    public static void readAndWriteViaBufferedInputStream(String fileName, String outputFileName) {
+        try (BufferedInputStream is = new BufferedInputStream(Files.newInputStream(new File(fileName).toPath()));
+             BufferedOutputStream os = new BufferedOutputStream(Files.newOutputStream(new File(outputFileName).toPath()))) {
+            int line;
+            byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
+            while ((line = is.read(buffer)) != -1) {
+                os.write(buffer, 0, line);
+            }
+            os.flush();
+        }  catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -85,6 +103,7 @@ public class CustomFileReader {
         }
     }
 
+
     public static void readAndWriteViaInputStream(String fileName, String outputFileName) {
         try (InputStream is = Files.newInputStream(new File(fileName).toPath());
              OutputStream os = Files.newOutputStream(new File(outputFileName).toPath())) {
@@ -95,38 +114,6 @@ public class CustomFileReader {
             os.flush();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    /**
-     * Use BufferedInputStream when file contains binary data, as we'd be converting the data to String
-     *
-     * @param fileName
-     */
-    public static void readAndWriteViaBufferedInputStream(String fileName, String outputFileName) {
-        try (BufferedInputStream is = new BufferedInputStream(Files.newInputStream(new File(fileName).toPath()));
-             BufferedOutputStream os = new BufferedOutputStream(Files.newOutputStream(new File(outputFileName).toPath()))) {
-            int line;
-            byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
-            while ((line = is.read(buffer)) != -1) {
-               os.write(buffer, 0, line);
-            }
-            os.flush();
-        }  catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void readAndWriteViaBufferedReader(String fileName, String outputFileName) {
-        try (BufferedReader is = new BufferedReader(new FileReader(fileName));
-             BufferedWriter os = new BufferedWriter(new FileWriter(outputFileName))) {
-            String line;
-            while ((line = is.readLine()) != null) {
-                os.write(line);
-            }
-            os.flush();
-        }  catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 
