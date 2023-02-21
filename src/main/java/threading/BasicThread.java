@@ -1,9 +1,10 @@
-package function_interface;
+package threading;
 
-public class MainClass {
+public class BasicThread {
     public static void main(String[] args) {
-        int a = 5;
+
         System.out.println(Thread.currentThread().getName());
+
         new Thread(() -> {
             System.out.println("Thread1 " + Thread.currentThread().getName());
             try {

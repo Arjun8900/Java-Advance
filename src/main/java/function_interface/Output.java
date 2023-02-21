@@ -1,4 +1,4 @@
-package function_interface.inbuit_function;
+package function_interface;
 
 import lombok.Data;
 
