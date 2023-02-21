@@ -2,14 +2,17 @@ package stream.basics;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ListAnyMatchContains {
     public static void main(String[] args) {
-        matchAny();
-        skipAndLimit();
-        reduceList();
+//        matchAny();
+//        skipAndLimit();
+//        reduceList();
+
+        getFirst();
     }
 
     private static void reduceList() {
@@ -28,6 +31,18 @@ public class ListAnyMatchContains {
         List<Integer> numbers = IntStream.range(1, 1_000_000).boxed().collect(Collectors.toList());
         boolean isMatchViaStream = numbers.stream().anyMatch(x -> x == match);
         System.out.println(isMatchViaStream);
+    }
+
+    private static void getFirst() {
+        int match = 600000;
+        Integer res = null;
+        List<Integer> numbers = IntStream.range(1, 1_000_000).boxed().collect(Collectors.toList());
+        Optional<Integer> number = numbers.stream().filter(num -> num == match).findFirst();
+        if (number.isPresent()) {
+            res = number.get();
+            System.out.println(res);
+        }
+//        System.out.println(res);
     }
 
     private static void skipAndLimit() {
